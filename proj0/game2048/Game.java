@@ -90,13 +90,26 @@ public class Game {
     /** Return the side indicated by KEY ("Up", "Down", "Left",
      *  or "Right"). */
     private Side keyToSide(String key) {
-        return switch (key) {
-            case KeyEvent.VK_UP + "", "\u2191" -> NORTH;
-            case KeyEvent.VK_DOWN + "", "\u2193" -> SOUTH;
-            case KeyEvent.VK_LEFT + "", "\u2190" -> WEST;
-            case KeyEvent.VK_RIGHT+ "", "\u2192" -> EAST;
-            default -> throw new IllegalArgumentException("unknown key designation");
-        };
+        switch (key) {
+            case KeyEvent.VK_UP + "":
+                return NORTH;
+            case "\u2191":
+                return NORTH;
+            case KeyEvent.VK_DOWN + "":
+                return SOUTH;
+            case "\u2193":
+                return SOUTH;
+            case KeyEvent.VK_LEFT + "":
+                return WEST;
+            case "\u2190":
+                return WEST;
+            case KeyEvent.VK_RIGHT+ "":
+                return EAST;
+            case "\u2192":
+                return EAST;
+            default:
+                throw new IllegalArgumentException("unknown key designation");
+        }
     }
 
     /** Return a valid tile, using our source's tile input until finding
