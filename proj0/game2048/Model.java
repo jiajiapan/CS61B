@@ -118,7 +118,7 @@ public class Model extends Observable {
     private int nextRow(int col, int row, boolean[][] isMerge) {
         for (int j = row + 1; j <size(); j ++) {
             if (_board.tile(col, j) != null) {
-                if(_board.tile(col,j).value() == _board.tile(col,row).value() && !isMerge[col][j]) {
+                if (_board.tile(col,j).value() == _board.tile(col,row).value() && !isMerge[col][j]) {
                     return j;
                 }
                 else
@@ -140,8 +140,8 @@ public class Model extends Observable {
         }
 
         for (int i = 0; i < s; i++) {
-            for(int j = s - 2; j >=0; j --) {
-                if(tile(i,j) != null) {
+            for (int j = s - 2; j >=0; j --) {
+                if (tile(i,j) != null) {
                     int k = nextRow(i, j, isMerge);
                     Tile t = tile(i, j);
                     isMerge[i][k] =_board.move(i,k,t);
